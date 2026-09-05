@@ -2,7 +2,7 @@ import streamlit as st
 import base64
 
 def footer_home():
-    logo_path = "D:\\Attendly\\Devas_logo.png"
+    logo_path = "Devas_logo.png"
 
     with open(logo_path, "rb") as image_file:
         logo_url = base64.b64encode(image_file.read()).decode()
@@ -18,7 +18,7 @@ def footer_home():
 
 
 def footer_dashboard():
-    logo_path = "D:\\Attendly\\Devas_logo.png"
+    logo_path = "Devas_logo.png"
 
     with open(logo_path, "rb") as image_file:
         logo_url = base64.b64encode(image_file.read()).decode()

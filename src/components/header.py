@@ -2,7 +2,7 @@ import streamlit as st
 import base64
 
 def header_home():
-    logo_path = "D:\\Attendly\\logo.png"
+    logo_path = "logo.png"
 
     with open(logo_path, "rb") as image_file:
         logo_url = base64.b64encode(image_file.read()).decode()
@@ -17,7 +17,7 @@ def header_home():
 
 
 def header_dashboard():
-    logo_path = "D:\\Attendly\\logo.png"
+    logo_path = "logo.png"
 
     with open(logo_path, "rb") as image_file:
         logo_url = base64.b64encode(image_file.read()).decode()
