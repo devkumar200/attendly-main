@@ -15,14 +15,14 @@ def home_screen():
 
     with col_1:
         st.header("I'm Student")
-        st.image("D:\\Attendly\\student.png",width=120)
+        st.image("student.png",width=120)
         if st.button('Student Portal',type="primary",icon=':material/arrow_outward:',icon_position="right"):
             st.session_state['login_type'] = 'student'
             st.rerun()         
 
     with col_2:
         st.header("I'm Teacher")
-        st.image("D:\\Attendly\\teacher.png",width=120)
+        st.image("teacher.png",width=120)
         if st.button('Teacher Portal',type="primary",icon=':material/arrow_outward:',icon_position="right"):         
             st.session_state['login_type'] = 'teacher'
             st.rerun()
