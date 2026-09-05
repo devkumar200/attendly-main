@@ -1,8 +1,9 @@
 import streamlit as st
 import base64
+import os
 
 def header_home():
-    logo_path = "logo.png"
+    logo_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "logo.png")
 
     with open(logo_path, "rb") as image_file:
         logo_url = base64.b64encode(image_file.read()).decode()
@@ -17,7 +18,7 @@ def header_home():
 
 
 def header_dashboard():
-    logo_path = "logo.png"
+    logo_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "logo.png")
 
     with open(logo_path, "rb") as image_file:
         logo_url = base64.b64encode(image_file.read()).decode()
