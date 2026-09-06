@@ -4,12 +4,13 @@ from src.ui.style_base_layout import style_background_dashboard,style_base_layou
 from src.components.header import header_dashboard
 from src.components.footer import footer_dashboard
 from src.components.subject_card import subject_card
-from src.database.db import check_teacher_exists, create_teacher,teacher_login,get_teacher_subjects,get_attendance_for_teacher
+from src.database.db import check_teacher_exists, create_teacher,delete_subject,teacher_login,get_teacher_subjects,get_attendance_for_teacher
 from src.components.dialog_create_subject import create_subject_dialog
 from src.components.dialog_share_subject import share_subject_dialog
 from src.components.dialog_add_photo import add_photos_dialog
 from src.components.dialog_attedance_results import attendance_result_dialog
 from src.components.dialog_voice_attendance import voice_attendance_dialog
+from src.components.dialog_remove_subject import remove_subject_dialog
 
 from src.pipelines.face_pipeline import predict_attendance
 import numpy as np
@@ -185,9 +186,15 @@ def teacher_tab_manage_subjects():
             ]
 
             def share_btn(sub=sub):
-                if st.button(f"Share Code: {sub['name']}",key = f"share_{sub['subject_code']}",icon=":material/share:"):
-                    share_subject_dialog(sub['name'],sub['subject_code'])
-                st.space()
+                col1,col2 = st.columns(2)
+
+                with col1:
+                    if st.button("Share Subject",key=f"share_{sub['subject_code']}",icon=":material/share:",width="stretch"):
+                        share_subject_dialog(sub['name'],sub['subject_code'])
+
+                with col2:
+                    if st.button("Remove Subject",key=f"remove_{sub['subject_code']}",icon=":material/delete:",width="stretch"):
+                        remove_subject_dialog(sub['subject_id'],teacher_id,sub['name'])
 
             subject_card(
                 name = sub['name'],
