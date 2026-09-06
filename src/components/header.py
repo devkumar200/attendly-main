@@ -9,12 +9,26 @@ def header_home():
         logo_url = base64.b64encode(image_file.read()).decode()
 
     st.markdown(f"""
+        <style>
+            .home-title {{
+                text-align: center;
+                color: #FAFAFA;
+                white-space: nowrap;
+            }}
+
+            @media (max-width: 600px) {{
+                .home-title {{
+                    font-size: 3.2rem !important;
+                }}
+            }}
+        </style>
+
         <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;margin-top:30px;margin-bottom:30px;">
-        <img src='data:image/png;base64,{logo_url}'style='height:100px'/>
-        <h1 style='text-align:center;color:#FAFAFA'>Attendly</h1>
+            <img src='data:image/png;base64,{logo_url}' style='height:100px'/>
+            <h1 class="home-title">Attendly</h1>
         </div>
 
-    """,unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
 
 
 def header_dashboard():
